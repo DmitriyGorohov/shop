@@ -17,11 +17,11 @@ interface CounterProps {
 const Counter: React.FC<CounterProps> = ({ quantity, onIncrement, width, onDecrement }) => {
     return (
         <View style={[styles.counterContainer, width && { width }]}>
-            <TouchableOpacity onPress={onDecrement} style={styles.counterButton}>
+            <TouchableOpacity onPress={onDecrement} style={[styles.counterButton, { alignItems: 'flex-start' }]}>
                 <Text style={styles.counterText}>-</Text>
             </TouchableOpacity>
             <Text style={styles.counterText}>{quantity}</Text>
-            <TouchableOpacity onPress={onIncrement} style={styles.counterButton}>
+            <TouchableOpacity onPress={onIncrement} style={[styles.counterButton, { alignItems: 'flex-end' }]}>
                 <Text style={styles.counterTextRight}>+</Text>
             </TouchableOpacity>
         </View>
@@ -42,6 +42,7 @@ const styles = StyleSheet.create({
     counterButton: {
         justifyContent: 'center',
         alignItems: 'center',
+        flex: 1,
     },
     counterText: {
         fontSize: 12,
